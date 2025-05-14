@@ -62,7 +62,45 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         currentState.FixedUpdate(); // 👈 Aquí se llama el de cada estado
+
     }
-    
+ 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Wall"))
+        {
+
+            // Empuja al personaje 0.5f en la dirección opuesta al contacto
+            Vector2 pushDirection = (transform.position - collision.transform.position).normalized;
+
+            // Solo usamos el eje X (horizontal), ignoramos el Y
+            float horizontalPush = Mathf.Sign(pushDirection.x) * 0.5f;
+
+            rb2d.linearVelocity = new Vector2(horizontalPush, rb2d.linearVelocity.y);
+
+            Debug.Log("Rebote manual contra pared");
+        }
+    }
+
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Wall") && Input.GetAxisRaw("Horizontal") != 0)
+        {
+            rb2d.linearVelocity = new Vector2(-Input.GetAxisRaw("Horizontal") * 1.5f, rb2d.linearVelocity.y);
+        }
+        Debug.Log("Rebote jajaja");
+
+
+    }
+
 
 }
+
+
+
+
+
+
+
+

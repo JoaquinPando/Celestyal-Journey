@@ -9,6 +9,6 @@ PhysicsMaterial2D:
   m_Name: playerBounce
   serializedVersion: 2
   friction: 0
-  bounciness: 2
+  bounciness: 1.2
   m_FrictionCombine: 3
   m_BounceCombine: 4

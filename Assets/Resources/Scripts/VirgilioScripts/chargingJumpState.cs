@@ -7,10 +7,10 @@ public class ChargingJumpState : IPlayerState
     private float initialHorizontal;
     private float startChargeTime;
 
-    public float maxJumpPower = 5f;
-    public float maxChargeTime = 0.65f;
-    public float horizontalImpulse = 15f;
-    public float verticalImpulseFactor = 3.5f;
+    public float maxJumpPower = 4f;
+    public float maxChargeTime = 0.60f;
+    public float horizontalImpulse = 6f;
+    public float verticalImpulseFactor = 2f;
 
     public void Enter(PlayerController player)
     {
@@ -26,7 +26,6 @@ public class ChargingJumpState : IPlayerState
 
     public void Exit()
     {
-        player.jumpValue = 0f;
         jumpTriggered = false;
     }
 
@@ -46,17 +45,18 @@ public class ChargingJumpState : IPlayerState
 
     public void FixedUpdate()
     {
-        
+
 
         if (jumpTriggered)
         {
             player.rb2d.linearVelocity = Vector2.zero; // Evita acumulación
 
-            float forceScale = Mathf.Pow(player.jumpValue / maxJumpPower, 1.2f); // efecto curva
-            float adjustedHorizontal = horizontalImpulse * forceScale;
-            Vector2 jumpForce = new Vector2(initialHorizontal * adjustedHorizontal, player.jumpValue * verticalImpulseFactor);
+            // Usamos Lerp para dar impulso horizontal incluso en saltos cortos
+            float forceScale = Mathf.Lerp(0.5f, 1f, player.jumpValue / maxJumpPower);
+            float adjustedHorizontal = horizontalImpulse * forceScale *2f;
 
-            player.rb2d.AddForce(jumpForce, ForceMode2D.Impulse);
+            Vector2 jumpVelocity = new Vector2(initialHorizontal * adjustedHorizontal, player.jumpValue * verticalImpulseFactor);
+            player.rb2d.linearVelocity = jumpVelocity;
 
             player.TransitionToState(new jumpingState());
         }
