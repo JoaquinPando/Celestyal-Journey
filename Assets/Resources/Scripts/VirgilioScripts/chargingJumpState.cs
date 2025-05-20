@@ -9,7 +9,7 @@ public class ChargingJumpState : IPlayerState
 
     public float maxJumpPower = 4f;
     public float maxChargeTime = 0.60f;
-    public float horizontalImpulse = 8f;
+    public float horizontalImpulse = 1f;
     public float verticalImpulseFactor = 2f;
 
     public void Enter(PlayerController player)
