@@ -2,27 +2,36 @@ using UnityEngine;
 
 public class Musicacontinua : MonoBehaviour
 {
-    private static AudioSource _audioSource;
+    private static Musicacontinua instancia;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
-        if(_audioSource != null){
+        if (instancia != null && instancia != this)
+        {
             Destroy(gameObject);
         }
-        else{
-            DontDestroyOnLoad(this.gameObject);
+        else
+        {
+            instancia = this;
+            DontDestroyOnLoad(gameObject);
             _audioSource = GetComponent<AudioSource>();
         }
-    }   
+    }
 
     public void PlayMusic()
     {
-        if (_audioSource.isPlaying) return;
-        _audioSource.Play();
+        if (_audioSource != null && !_audioSource.isPlaying)
+        {
+            _audioSource.Play();
+        }
     }
 
     public void StopMusic()
     {
-        _audioSource.Stop();
+        if (_audioSource != null)
+        {
+            _audioSource.Stop();
+        }
     }
 }
