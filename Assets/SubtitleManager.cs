@@ -114,12 +114,17 @@ public class SubtitleManager : MonoBehaviour
     IEnumerator SubtitleCoroutine()
     {
         subtitleText.text = "";
-        while (audioSource.isPlaying && currentIndex < subtitles.Count)
+
+        while (currentIndex < subtitles.Count)
         {
             float currentTime = audioSource.time;
+
+            if (currentIndex >= subtitles.Count)
+                break;
+
             SubtitleLine line = subtitles[currentIndex];
 
-            if (currentTime >= line.start && currentTime <= line.end && subtitlesEnabled)
+            if (subtitlesEnabled && currentTime >= line.start && currentTime <= line.end)
             {
                 subtitleText.text = line.text;
             }
@@ -134,4 +139,5 @@ public class SubtitleManager : MonoBehaviour
 
         subtitleText.text = "";
     }
+
 }

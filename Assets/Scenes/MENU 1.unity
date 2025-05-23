@@ -6416,7 +6416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba61052e663a4bd08cc7cfe49f8f2fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightSource: {fileID: 0}
+  lightSource: {fileID: 1625016787}
   pulseSpeed: 1
   minIntensity: 0.5
   maxIntensity: 1.5

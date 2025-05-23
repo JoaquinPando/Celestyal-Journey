@@ -2,6 +2,12 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+# Ignorar todos los archivos de video
+*.mp4
+*.mov
+*.avi
+*.mkv
+
 .utmp/
 /[Ll]ibrary/
 /[Tt]emp/
