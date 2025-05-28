@@ -167,16 +167,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29850006e68e3bb45b94632510669008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseScrollSpeed: 2
-  pauseMovement: 0
-  parallaxLayers: []
+  globalMovementRange: 0.5
+  globalMovementSpeed: 0.15
+  pauseAllMovement: 0
   autoSetupChildren: 1
+  rangeMultipliers:
+  - 0.3
+  - 0.5
+  - 0.7
+  - 1
+  - 1.2
   speedMultipliers:
   - 0.5
   - 1
   - 1.5
   - 2
   - 2.5
+  manualLayers: []
 --- !u!1 &25698838
 GameObject:
   m_ObjectHideFlags: 0
@@ -6597,16 +6604,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29850006e68e3bb45b94632510669008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseScrollSpeed: 2
-  pauseMovement: 0
-  parallaxLayers: []
+  globalMovementRange: 0.5
+  globalMovementSpeed: 0.15
+  pauseAllMovement: 0
   autoSetupChildren: 1
+  rangeMultipliers:
+  - 0.3
+  - 0.5
+  - 0.7
+  - 1
+  - 1.2
   speedMultipliers:
   - 0.5
   - 1
   - 1.5
   - 2
   - 2.5
+  manualLayers: []
 --- !u!1 &370572843
 GameObject:
   m_ObjectHideFlags: 0
@@ -12704,16 +12718,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29850006e68e3bb45b94632510669008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseScrollSpeed: 2
-  pauseMovement: 0
-  parallaxLayers: []
+  globalMovementRange: 0.5
+  globalMovementSpeed: 0.15
+  pauseAllMovement: 0
   autoSetupChildren: 1
+  rangeMultipliers:
+  - 0.3
+  - 0.5
+  - 0.7
+  - 1
+  - 1.2
   speedMultipliers:
   - 0.5
   - 1
   - 1.5
   - 2
   - 2.5
+  manualLayers: []
 --- !u!1 &867890386
 GameObject:
   m_ObjectHideFlags: 0
@@ -13020,16 +13041,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29850006e68e3bb45b94632510669008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseScrollSpeed: 2
-  pauseMovement: 0
-  parallaxLayers: []
+  globalMovementRange: 0.5
+  globalMovementSpeed: 0.15
+  pauseAllMovement: 0
   autoSetupChildren: 1
+  rangeMultipliers:
+  - 0.3
+  - 0.5
+  - 0.7
+  - 1
+  - 1.2
   speedMultipliers:
   - 0.5
   - 1
   - 1.5
   - 2
   - 2.5
+  manualLayers: []
 --- !u!1 &1038910230
 GameObject:
   m_ObjectHideFlags: 0
@@ -14317,16 +14345,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29850006e68e3bb45b94632510669008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseScrollSpeed: 2
-  pauseMovement: 0
-  parallaxLayers: []
+  globalMovementRange: 0.5
+  globalMovementSpeed: 0.15
+  pauseAllMovement: 0
   autoSetupChildren: 1
+  rangeMultipliers:
+  - 0.3
+  - 0.5
+  - 0.7
+  - 1
+  - 1.2
   speedMultipliers:
   - 0.5
   - 1
   - 1.5
   - 2
   - 2.5
+  manualLayers: []
 --- !u!1 &1864020186
 GameObject:
   m_ObjectHideFlags: 0
@@ -14701,16 +14736,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29850006e68e3bb45b94632510669008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseScrollSpeed: 2
-  pauseMovement: 0
-  parallaxLayers: []
+  globalMovementRange: 0.5
+  globalMovementSpeed: 0.15
+  pauseAllMovement: 0
   autoSetupChildren: 1
+  rangeMultipliers:
+  - 0.3
+  - 0.5
+  - 0.7
+  - 1
+  - 1.2
   speedMultipliers:
   - 0.5
   - 1
   - 1.5
   - 2
   - 2.5
+  manualLayers: []
 --- !u!1 &2018330987
 GameObject:
   m_ObjectHideFlags: 0
