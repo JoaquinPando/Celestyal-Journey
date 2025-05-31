@@ -4,11 +4,17 @@ public class jumpingState : IPlayerState
 {
     private PlayerController player;
 
+public void Enter(PlayerController player)
+{
+    this.player = player;
+    // 1) aplica la física del salto
+    player.rb2d.linearVelocity = new Vector2(player.rb2d.linearVelocity.x, player.jumpValue * 2f);
+    // 2) dispara la animación
+    player.animator.SetTrigger("Jump");
+    // 3) muestra el diálogo y reproduce el audio
+    player.TriggerJumpDialogue();
+}
 
-    public void Enter(PlayerController player)
-    {
-        this.player = player;
-    }
 
     public void FixedUpdate()
     {
