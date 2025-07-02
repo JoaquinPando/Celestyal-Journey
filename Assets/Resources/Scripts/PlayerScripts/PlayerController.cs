@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         FlipSprite();
         CheckGrounded();
+        // Si estás caminando, asegúrate que NO se quede cargando
+        if (horizontal != 0 && !Input.GetKey(KeyCode.W))
+            SetAnimation("charge", false);
         currentState.Update();
         animator.SetBool("walk", horizontal != 0.0f);
     }

@@ -8,12 +8,14 @@ public class IdleState : IPlayerState
     {
         this.player = player;
         player.SetAnimation("walk", false);
+        player.SetAnimation("charge", false); // aseguramos que no quede activa
         player.speed = 1f;
     }
 
     public void Exit()
     {
         player.SetAnimation("walk", false);
+        player.SetAnimation("charge", false);
     }
 
     public void FixedUpdate()
@@ -37,6 +39,7 @@ public class IdleState : IPlayerState
         // Transición a cargar salto
         if (Input.GetKeyDown(KeyCode.W) && player.grounded)
         {
+            player.SetAnimation("walk", false); // desactiva animación walk al cargar
             player.TransitionToState(new ChargingJumpState());
         }
     }
