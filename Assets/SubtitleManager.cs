@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using TMPro;
 using System.IO;
 using Newtonsoft.Json;
@@ -16,19 +17,25 @@ public class SubtitleManager : MonoBehaviour
     }
 
     public AudioSource audioSource;
+    public VideoPlayer videoPlayer;
     public TextMeshProUGUI subtitleText;
     public TextMeshProUGUI noticeText;
     public string subtitleFileName = "subtitles_colored_fragmented.json";
+    public Animator transicionAnimator; 
+    public string triggerNombre = "IniciarTransicion"; 
+    public transicionEscena controladorTransicion;
+
 
     private List<SubtitleLine> subtitles;
     private int currentIndex = 0;
     private bool subtitlesEnabled = true;
     private Coroutine noticeCoroutine;
+    private Coroutine subtitleCoroutine;
 
     void Start()
     {
         LoadSubtitles();
-        StartCoroutine(SubtitleCoroutine());
+        subtitleCoroutine = StartCoroutine(SubtitleCoroutine());
 
         noticeText.alpha = 0f;
         noticeText.enabled = true;
@@ -39,6 +46,7 @@ public class SubtitleManager : MonoBehaviour
 
     void Update()
     {
+        // Toggle subtítulos con S
         if (Input.GetKeyDown(KeyCode.S))
         {
             subtitlesEnabled = !subtitlesEnabled;
@@ -50,6 +58,12 @@ public class SubtitleManager : MonoBehaviour
             ShowNotice(subtitlesEnabled
                 ? "Subtítulos activados (S para ocultar)"
                 : "Subtítulos desactivados (S para mostrar)");
+        }
+
+        // Saltar video con ESC
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SkipVideo();
         }
     }
 
@@ -80,11 +94,11 @@ public class SubtitleManager : MonoBehaviour
         noticeText.text = message;
         noticeText.enabled = true;
 
-        // Fade In
         float duration = 0.3f;
         float elapsed = 0f;
         Color color = noticeText.color;
 
+        // Fade In
         while (elapsed < duration)
         {
             float t = elapsed / duration;
@@ -92,9 +106,10 @@ public class SubtitleManager : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
+
         noticeText.color = new Color(color.r, color.g, color.b, 1);
 
-        // Wait 2 seconds
+        // Wait before fade out
         yield return new WaitForSeconds(2f);
 
         // Fade Out
@@ -139,5 +154,28 @@ public class SubtitleManager : MonoBehaviour
 
         subtitleText.text = "";
     }
+
+
+    void SkipVideo()
+{
+    if (audioSource.isPlaying)
+        audioSource.Stop();
+
+    if (videoPlayer != null && videoPlayer.isPlaying)
+        videoPlayer.Stop();
+
+    if (subtitleCoroutine != null)
+        StopCoroutine(subtitleCoroutine);
+
+    subtitleText.text = "";
+    subtitleText.enabled = false;
+
+    ShowNotice("Video saltado");
+
+    // 🔥 Ejecutar la transición (mostrar imagen y cambiar escena)
+    if (controladorTransicion != null)
+        controladorTransicion.EjecutarTransicion();
+}
+
 
 }

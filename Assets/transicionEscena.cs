@@ -4,28 +4,36 @@ using System.Collections;
 
 public class transicionEscena : MonoBehaviour
 {
-   private Animator animator;
-   [SerializeField] private AnimationClip animacionFinal;
+    [SerializeField] private Animator animator; // ← ahora lo asignas desde el Inspector
+    [SerializeField] private AnimationClip animacionFinal;
+    [SerializeField] private GameObject visualPanel;   // ← panel con la imagen de transición
 
-    private void Start()
+    void Start()
     {
-        animator = GetComponent<Animator>();
+        if (visualPanel != null)
+            visualPanel.SetActive(false); // oculta el panel visual al inicio
     }
 
-    // Update is called once per frame
-    private void Update()
+    public void EjecutarTransicion()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (visualPanel != null)
+            visualPanel.SetActive(true);
+
+        StartCoroutine(CambiarEscenas());
+    }
+
+    IEnumerator CambiarEscenas()
+    {
+        // Asegúrate de que el animator esté asignado
+        if (animator != null)
         {
-            StartCoroutine(CambiarEscenas());
-        }   
-    }
-    IEnumerator CambiarEscenas(){
-        animator.SetTrigger("Iniciar");
-        
-        yield return new WaitForSeconds(animacionFinal.length);
-
-        SceneManager.LoadScene(1);
-
+            animator.SetTrigger("Iniciar");
+            yield return new WaitForSeconds(animacionFinal.length);
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            Debug.LogError("No se ha asignado el Animator en el script transicionEscena.");
+        }
     }
 }
