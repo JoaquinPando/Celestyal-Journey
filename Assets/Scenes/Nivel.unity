@@ -14140,13 +14140,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362362598}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4404e05d88f03f34982ee356ed69f23b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePrefab: {fileID: 8414653098523585050, guid: 10cdf2e07084acf42b9d7c63d3b9e202, type: 3}
-  jumpAudio: {fileID: 8300000, guid: 9dee051fa7ca1c541a57d28c8b4cc413, type: 3}
+  dialoguePrefab: {fileID: 0}
+  jumpAudio: {fileID: 0}
 --- !u!82 &1362362606
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14330,6 +14330,100 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463361129}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1478593413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1478593415}
+  - component: {fileID: 1478593414}
+  m_Layer: 0
+  m_Name: whisper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1478593414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478593413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abc2c0cd25064114bc5a4c2412caadc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  danteJumpVoice: {fileID: 8300000, guid: 4487bbed6d0b04be0bf398dc057471e4, type: 3}
+  minDelay: 40
+  maxDelay: 100
+--- !u!4 &1478593415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478593413}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -28.739506, y: 1.0839084, z: 0.094124354}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1522896587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1522896589}
+  - component: {fileID: 1522896588}
+  m_Layer: 0
+  m_Name: DanteVoiceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1522896588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522896587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abc2c0cd25064114bc5a4c2412caadc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  danteJumpVoice: {fileID: 8300000, guid: 9dee051fa7ca1c541a57d28c8b4cc413, type: 3}
+  minDelay: 60
+  maxDelay: 180
+--- !u!4 &1522896589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522896587}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -28.739506, y: 1.0839084, z: 0.094124354}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1531047856
 GameObject:
   m_ObjectHideFlags: 0
@@ -15425,6 +15519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: JumpDialogueCanvas.
       objectReference: {fileID: 0}
+    - target: {fileID: 8414653098523585050, guid: 10cdf2e07084acf42b9d7c63d3b9e202, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15447,3 +15545,5 @@ SceneRoots:
   - {fileID: 2014899830}
   - {fileID: 14936700}
   - {fileID: 1687488764}
+  - {fileID: 1522896589}
+  - {fileID: 1478593415}
